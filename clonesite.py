@@ -270,11 +270,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Website cloner.')
     parser.add_argument('-p', action='store', dest='proxies', help='ip:port')
     parser.add_argument('-o', action='store', dest='folder',default='out', help='Output folder')
-    parser.add_argument('-d', action='store', dest='maxdepth',default=3,type=int, help='Depth of url')
+    parser.add_argument('-d', action='store', dest='maxdepth',default=3,type=int, help='Depth of url (default 3)')
     parser.add_argument('-a', action='store', dest='action',default='index', help='Default action of the found forms')
     parser.add_argument('-m', action='store', dest='method',default='post', help='Method used in the found forms')
-    parser.add_argument('-x', action='store_true',dest='remove_hidden',default=False,help='Remove hidden inputs')
-    parser.add_argument('-j', action='store_true',dest='remove_js',default=False,help='Remove scripts inputs')
+    parser.add_argument('-x', action='store_true',dest='remove_hidden',default=False,help='Remove hidden inputs (default False)')
+    parser.add_argument('-j', action='store_true',dest='remove_js',default=False,help='Remove scripts inputs (default False)')
     parser.add_argument('url',action='store')
     
     result = parser.parse_args()
@@ -282,8 +282,3 @@ if __name__ == "__main__":
     print result
     c = Cloner(result.url, result.folder, result.remove_js, result.remove_hidden, maxdepth=result.maxdepth,proxies=result.proxies)
     c.clone(method=result.method, action=result.action)
-
-#     if len(sys.argv) == 4:
-#         c.clone(action=sys.argv[3])
-#     else:
-#         c.clone()
