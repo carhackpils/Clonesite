@@ -18,3 +18,5 @@
     -x           Remove hidden inputs (default False)
     -j           Remove scripts inputs (default False)
  ```
+
+Slightly modified from: https://github.com/tatanus/PHISHING/blob/master/SCRIPTS/clonesite.py
